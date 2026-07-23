@@ -93,6 +93,10 @@ app.listen("1111", () => {
   console.log("Server is running on : 1111 port");
 });
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.all("/*path", (req, res, next) => {
   next(new ExpressError(404, "Page not found!"));
 });
