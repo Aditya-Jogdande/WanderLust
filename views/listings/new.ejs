@@ -1,0 +1,108 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <br /><br />
+    <h3 class="form-tag">Create a new listing</h3>
+
+    <form
+      method="post"
+      action="/listings"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-lable">Title</label>
+        <input
+          type="text"
+          name="listing[title]"
+          placeholder="Add a catchy title"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Title Looks Good</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-lable">Description</label>
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-lable">Image</label>
+
+        <input type="file" name="listing[image]" class="form-control" />
+
+        <div class="invalid-feedback">Please upload an image</div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-lable">Price</label>
+          <input
+            type="number"
+            name="listing[price]"
+            placeholder="1200"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid price</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-lable">Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            placeholder="India"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid country</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-lable">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="listing[location]"
+          placeholder="Karad, Maharashtra"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter a valid location</div>
+      </div>
+
+      <!-- Map Picker -->
+      <div class="mb-3">
+        <label class="form-label">Select Exact Location</label>
+
+        <div
+          id="pickMap"
+          style="width: 100%; height: 400px; border-radius: 10px"
+        ></div>
+
+        <small class="text-muted">
+          Type the location above and press <b>Tab</b> or click outside the
+          field. The map will move to that place. Then click on the exact
+          location on the map.
+        </small>
+      </div>
+
+      <!-- Hidden Coordinates -->
+      <input type="hidden" id="latitude" name="listing[latitude]" />
+
+      <input type="hidden" id="longitude" name="listing[longitude]" />
+
+      <button class="btn btn-dark add-btn">Add</button>
+
+      <br /><br />
+    </form>
+  </div>
+</div>
