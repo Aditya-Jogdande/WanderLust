@@ -88,7 +88,6 @@ async function main() {
 
 app.use("/listings", listingRoute);
 app.use("/listings/:id/review", reviewRoute);
-app.use("/", userRoute);
 
 app.listen("1111", () => {
   console.log("Server is running on : 1111 port");
